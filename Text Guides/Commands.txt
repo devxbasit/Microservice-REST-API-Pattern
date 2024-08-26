@@ -1,0 +1,60 @@
+Create empty solution, then src directory, inside src run below commands 
+$ dotnet new webapi -n PlatformService
+$ dotnet new webapi -n CommandsServices
+
+
+Goto PlatformService directory, then add below packages
+$ dotnet add package <Package Name Here>
+Microsoft.entityframewkcore
+Microsoft.entityframewkcore.design
+Microsoft.entityframewkcore.InMemory
+Microsoft.entityframewkcore.SqlServer
+Automapper.extensions.microsoft.dependencyInjection
+
+
+-------------------------------------------------------
+Part 3 - Containerizing the Platform service
+-------------------------------------------------------
+Create docker file in PlatformService directory & then run below commands (to build, push, run)
+
+$ docker build -t devxbasit/platformservice .
+$ docker push devxbasit/platformservice
+$ docker run -p 8080:5000 -d devxbasit/platformservice
+
+
+
+### other docker useful commands 
+$ docker ps
+$ docker stop <container ID>
+$ docker start <container ID>
+
+
+
+-------------------------------------------------------
+Kubernetes
+-------------------------------------------------------
+Create yaml file(platforms-depl.yaml) for kubernetes & run below command
+$ kubectl apply -f platforms-depl.yaml
+$ kubectl apply -f platforms-np-srv.yaml
+
+
+
+other kubernetes useful
+$ kubectl get deployments
+$ kubectl apply -f <deployment name here>
+$ kubectl version
+$ kubectl cluster-info
+$ kubectl get pods
+$ kubectl get services
+
+
+
+
+
+
+
+
+
+
+
+
